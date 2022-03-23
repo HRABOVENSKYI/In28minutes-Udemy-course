@@ -1,6 +1,6 @@
 package ua.lviv.dataart.restfulwebservices.filter;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +10,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
+
     private String field1;
 
     private String field2;
 
-    @JsonIgnore
     private String field3;
 }
