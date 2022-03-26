@@ -1,7 +1,9 @@
-package ua.lviv.dataart.restfulwebservices.api;
+package ua.lviv.dataart.restfulwebservices.api.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ua.lviv.dataart.restfulwebservices.api.model.User;
+import ua.lviv.dataart.restfulwebservices.api.dao.UserDao;
 import ua.lviv.dataart.restfulwebservices.exception.UserNotFoundException;
 
 import java.util.List;

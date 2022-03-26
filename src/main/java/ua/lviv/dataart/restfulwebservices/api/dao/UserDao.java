@@ -1,9 +1,8 @@
-package ua.lviv.dataart.restfulwebservices.api;
+package ua.lviv.dataart.restfulwebservices.api.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import ua.lviv.dataart.restfulwebservices.api.model.User;
 
 import java.util.Optional;
 
