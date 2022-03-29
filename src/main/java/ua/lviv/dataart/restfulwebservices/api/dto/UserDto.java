@@ -13,5 +13,5 @@ public class UserDto {
     private Integer id;
     private String name;
     private Integer age;
-    private Set<PostSimpleDto> posts;
+    private Set<PostDto> posts;
 }

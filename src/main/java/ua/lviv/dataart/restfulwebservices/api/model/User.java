@@ -22,6 +22,16 @@ public class User {
     private Integer age;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Post> posts;
+
+    public void addPost(Post post) {
+        post.setUser(this);
+        this.posts.add(post);
+    }
+
+    public void removePost(Post post) {
+        post.setUser(null);
+        this.posts.remove(post);
+    }
 }

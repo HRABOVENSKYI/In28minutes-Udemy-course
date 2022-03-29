@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ua.lviv.dataart.restfulwebservices.api.dto.PostDto;
 import ua.lviv.dataart.restfulwebservices.api.dto.UserDto;
 import ua.lviv.dataart.restfulwebservices.api.model.User;
 import ua.lviv.dataart.restfulwebservices.api.service.UserService;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService userService;
+
     private final ModelMapper mapper;
 
     @GetMapping
@@ -45,6 +47,19 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/posts")
+    public ResponseEntity<List<PostDto>> getAllUsersPosts(@PathVariable Integer id) {
+        return ResponseEntity.ok(userService.getAllUsersPosts(id).stream()
+                .map(p -> mapper.map(p, PostDto.class))
+                .collect(Collectors.toList()));
+    }
+
+    @PostMapping("/{id}/posts")
+    public ResponseEntity<Void> createPost(@PathVariable Integer id, @RequestBody PostDto postDto) {
+        userService.createPost(id, postDto);
         return ResponseEntity.ok().build();
     }
 }

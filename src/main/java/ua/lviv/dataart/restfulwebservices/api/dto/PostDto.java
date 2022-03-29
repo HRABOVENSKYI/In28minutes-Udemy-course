@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class PostSimpleDto {
+public class PostDto {
     private Integer id;
     private String description;
 }
