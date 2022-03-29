@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ua.lviv.dataart.restfulwebservices.exception.UserNotFoundException;
+import ua.lviv.dataart.restfulwebservices.exception.NotFoundException;
 
 import java.time.ZonedDateTime;
 
@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 @Slf4j
 public class CustomExceptionHandler {
 
-    @ExceptionHandler({UserNotFoundException.class})
+    @ExceptionHandler({NotFoundException.class})
     public ResponseEntity<ApiException> handleNotFoundExceptions(RuntimeException e) {
         HttpStatus notFoundStatus = HttpStatus.NOT_FOUND;
         ApiException apiException = new ApiException(e.getMessage(), notFoundStatus, ZonedDateTime.now());

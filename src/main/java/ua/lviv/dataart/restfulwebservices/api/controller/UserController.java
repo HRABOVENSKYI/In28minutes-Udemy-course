@@ -62,4 +62,10 @@ public class UserController {
         userService.createPost(id, postDto);
         return ResponseEntity.ok().build();
     }
+
+    @DeleteMapping("/{id}/posts/{post_id}")
+    public ResponseEntity<Void> deletePost(@PathVariable("id") Integer userId, @PathVariable("post_id") Integer postId) {
+        userService.deletePost(userId, postId);
+        return ResponseEntity.ok().build();
+    }
 }
